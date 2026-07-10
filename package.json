@@ -1,0 +1,23 @@
+{
+  "name": "theme-jetbrains-syntax",
+  "theme": "syntax",
+  "version": "0.0.0",
+  "description": "Bring the Jetbrains syntax highlighting into Pulsar. ☄️  Theme package with Light, Dark and Darcula modes!  Made with ❤️ for pulsar.",
+  "author": "AptGetMe",
+  "keywords": [
+    "syntax",
+    "theme",
+    "pulsar",
+    "jetbrains",
+    "aptgetme",
+    "light",
+    "dark",
+    "darcula"
+  ],
+  "repository": "https://github.com/AptGetMe/pulsar-theme-jetbrains-syntax",
+  "bugs": "https://github.com/AptGetMe/pulsar-theme-jetbrains-syntax/issues",
+  "license": "MIT",
+  "engines": {
+    "atom": ">=1.0.0 <2.0.0"
+  }
+}
