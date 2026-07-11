@@ -1,5 +1,6 @@
-season = require 'season'
-path = require 'path'
+ThemeManager = require './theme-manager'
+
+mgr = new ThemeManager('light')
 
 module.exports =
 config:
@@ -31,17 +32,10 @@ config:
         description: 'Specific palette of colors for the currently selected theme.'
         type: 'object'
         properties: do ->
-            try
-                cson = path.join(__dirname, 'themes.cson')
-                themes = season.readFileSync cson
-                Object.fromEntries(
-                    for own name, color of themes.jetbrains_light
-                        [name, title: name, type: 'color', default: color]
-                )
-            catch err
-                atom.notifications.addError 'error reading or parsing theme cson file while generating config',
-                    detail: err.message,
-                    dismissable: yes
+            Object.fromEntries(
+                for own name, color of mgr.get()
+                    [name, title: name, type: 'color', default: color]
+            )
         order: 3
 
 activate: (state) ->
