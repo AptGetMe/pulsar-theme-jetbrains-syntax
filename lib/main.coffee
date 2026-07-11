@@ -45,6 +45,8 @@ activate: (state) ->
     @subscriptions = new CompositeDisposable()
     @subscriptions.add atom.config.onDidChange 'theme-jetbrains-syntax.theme', (event) ->
         mgr.set event.newValue
+    @subscriptions.add atom.config.onDidChange 'theme-jetbrains-syntax.palette', (event) ->
+        mgr.refresh event.newValue
 
 deactivate: ->
     console.log 'deactivating'
