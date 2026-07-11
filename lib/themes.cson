@@ -1,0 +1,15 @@
+jetbrains_light:
+    text: '#080808'
+    cursor: '#000000'
+    selection: '#A6D2FF'
+    bg: '#FFFFFF'
+jetbrains_dark:
+    text: '#bcbec4'
+    cursor: '#CED0D6'
+    selection: '#214283'
+    bg: '#1e1f22'
+jetbrains_darcula:
+    text: '#a9b7c6'
+    cursor: '#BBBBBB'
+    selection: '#214283'
+    bg: '#2b2b2b'
