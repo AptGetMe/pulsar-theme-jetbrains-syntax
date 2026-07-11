@@ -29,5 +29,6 @@ class ThemeManager
             else atom.notifications.addError 'unknown theme',
                 detail: name,
                 dismissable: yes
-                
+        atom.config.set 'theme-jetbrains-syntax.palette', @curTheme
+
 module.exports = ThemeManager

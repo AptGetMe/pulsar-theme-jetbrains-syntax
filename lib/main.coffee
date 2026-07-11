@@ -1,3 +1,4 @@
+{ CompositeDisposable } = require 'atom'
 ThemeManager = require './theme-manager'
 
 mgr = new ThemeManager('light')
@@ -41,5 +42,11 @@ config:
 activate: (state) ->
     console.log 'activating'
 
+    @subscriptions = new CompositeDisposable()
+    @subscriptions.add atom.config.onDidChange 'theme-jetbrains-syntax.theme', (event) ->
+        mgr.set event.newValue
+
 deactivate: ->
     console.log 'deactivating'
+
+    @subscriptions?.dispose()
