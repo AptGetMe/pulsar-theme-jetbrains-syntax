@@ -5,32 +5,34 @@ Fs = require 'fs'
 class ThemeManager
     constructor: (name) ->
         try
-            cson = Path.join(__dirname, 'themes.cson')
+            cson = Path.join __dirname, 'themes.cson'
             @themes = Season.readFileSync cson
         catch err
             atom.notifications.addError 'error reading or parsing theme cson file while generating config',
                 detail: err.message,
-                dismissable: yes        
-        @curTheme = switch name
-            when 'light' then @themes.jetbrains_light
-            when 'dark' then @themes.jetbrains_dark
-            when 'darcula' then @themes.jetbrains_darcula
-            else atom.notifications.addError 'unknown theme',
-                detail: name,
                 dismissable: yes
-        @colorStylesheet = Path.join(__dirname, '..', 'styles', 'colors.less')
+        @curTheme = @find name
+        @colorStylesheet = Path.join __dirname, '..', 'styles', 'colors.less'
 
     get: ->
         @curTheme
-    
+
     set: (name) ->
-        @curTheme = switch name
+        @curTheme = @find name
+        atom.config.set 'theme-jetbrains-syntax.palette', @curTheme
+
+    find: (name) ->
+        switch name
             when 'light' then @themes.jetbrains_light
             when 'dark' then @themes.jetbrains_dark
             when 'darcula' then @themes.jetbrains_darcula
-            else atom.notifications.addError 'unknown theme',
-                detail: name,
-                dismissable: yes
+            else
+                atom.notifications.addError 'unknown theme',
+                    detail: name,
+                    dismissable: yes
+                name = null
+
+    reset: ->
         atom.config.set 'theme-jetbrains-syntax.palette', @curTheme
     
     refresh: (palette) ->

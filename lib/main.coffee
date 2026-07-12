@@ -1,3 +1,4 @@
+Path = require 'path'
 { CompositeDisposable } = require 'atom'
 ThemeManager = require './theme-manager'
 
@@ -43,10 +44,14 @@ activate: (state) ->
     console.log 'activating'
 
     @subscriptions = new CompositeDisposable()
+    atom.keymaps.loadKeymap Path.join __dirname, '..', 'keymaps', 'keymap.cson'
+
     @subscriptions.add atom.config.onDidChange 'theme-jetbrains-syntax.theme', (event) ->
         mgr.set event.newValue
     @subscriptions.add atom.config.onDidChange 'theme-jetbrains-syntax.palette', (event) ->
         mgr.refresh event.newValue
+    @subscriptions.add atom.commands.add 'atom-text-editor', 'theme-jetbrains-syntax:reset': ->
+        mgr.reset()
 
 deactivate: ->
     console.log 'deactivating'

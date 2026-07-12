@@ -1,0 +1,2 @@
+'atom-text-editor':
+  'ctrl-alt-y': 'theme-jetbrains-syntax:reset'
