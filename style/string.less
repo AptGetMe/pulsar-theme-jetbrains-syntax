@@ -1,0 +1,39 @@
+// "string"
+.syntax--string {
+  color: @green;
+
+  // :immutable
+  &.syntax--immutable {
+    color: @green;
+  }
+
+  // ${variable} %().2f {0:<30}
+  &.syntax--part {
+    color: darken(@green, 15%);
+  }
+
+  // /^reg[ex]?p/
+  &.syntax--regexp {
+    color: @green;
+
+    // ^ $ \b ? + i
+    &.syntax--language {
+      color: @cyan;
+    }
+
+    // <variable> \1
+    &.syntax--variable {
+      color: @cyan;
+    }
+
+    // r" /
+    &.syntax--punctuation {
+      color: @green;
+
+      // ( ) [^ ] (?= ) |
+      &.syntax--part {
+        color: @cyan;
+      }
+    }
+  }
+}

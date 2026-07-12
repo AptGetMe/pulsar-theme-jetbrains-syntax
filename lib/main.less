@@ -1,4 +1,23 @@
-@import "../styles/syntax-variables";
+// import the correct color variables generated from the current theme
+@import "../style/colors";
 
-@import "../styles/editor";
-@import "../styles/syntax";
+// import fallbacks from the defaults for unstyled areas or for custom packages
+@import "../style/syntax-variables";
+
+// import editor specific stylesheets
+@import "../style/editor";
+
+// import syntax stylesheets
+@import "../style/comment";
+@import "../style/constant";
+@import "../style/entity";
+@import "../style/syntax";
+@import "../style/invalid.less";
+@import "../style/keyword";
+@import "../style/meta";
+@import "../style/punctuation";
+@import "../style/storage";
+@import "../style/string";
+@import "../style/support";
+@import "../style/syntax";
+@import "../style/variable";

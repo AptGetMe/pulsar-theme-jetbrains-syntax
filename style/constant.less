@@ -1,0 +1,44 @@
+// literal
+.syntax--constant {
+  color: @orange;
+
+  // &lt; 'a'
+  &.syntax--character {
+    color: @green;
+
+    // \" \' \g \.
+    &.syntax--escape {
+      color: @green;
+    }
+
+    // \u2661 \n \t \W .
+    &.syntax--code {
+      color: @cyan;
+    }
+  }
+
+  // 4 1.3 0x29
+  &.syntax--numeric {
+    color: @orange;
+
+    // px % cm hz
+    &.syntax--unit {
+      color: @orange;
+    }
+  }
+
+  // #b294bb
+  &.syntax--color {
+    color: @cyan;
+  }
+
+  // true false nil
+  &.syntax--language {
+    color: @orange;
+
+    // ...
+    &.syntax--symbolic {
+      color: @very-light-gray;
+    }
+  }
+}

@@ -1,0 +1,77 @@
+// __formatted__
+.syntax--markup {
+  color: @red;
+
+  // # Heading
+  &.syntax--heading {
+    color: @blue;
+  }
+
+  // - item
+  &.syntax--list {
+    color: @red;
+  }
+
+  // > quote
+  &.syntax--quote {
+    color: @orange;
+  }
+
+  // **bold**
+  &.syntax--bold {
+    color: @orange;
+    font-weight: bold;
+  }
+
+  // *italic*
+  &.syntax--italic {
+    color: @purple;
+    font-style: italic;
+  }
+
+  // __underline__
+  &.syntax--underline {
+    color: @orange;
+    text-decoration: underline;
+  }
+
+  // ~~strike~~
+  &.syntax--strike {
+    color: @red;
+  }
+
+  // `raw`
+  &.syntax--raw {
+    color: @green;
+  }
+
+  // url.com (path) [reference]
+  &.syntax--link {
+    color: @orange;
+  }
+
+  // {++ inserted ++}
+  &.syntax--inserted {
+    color: @green;
+  }
+
+  // {== inserted ==}
+  &.syntax--highlighted {
+    color: @green;
+  }
+
+  // {-- deleted --}
+  &.syntax--deleted {
+    color: @red;
+  }
+
+  // {~~ from~>to ~~}
+  &.syntax--changed {
+    color: @orange;
+  }
+
+  // {>> commented <<}
+  &.syntax--commented {
+    color: @light-gray;
+  }
+}

@@ -1,0 +1,15 @@
+// 0invalid
+.syntax--invalid:not(.syntax--punctuation) {
+
+  // §illegal
+  &.syntax--illegal {
+    background-color: @red;
+    color: @syntax-background-color;
+  }
+
+  // obsolete()
+  &.syntax--deprecated {
+    color: @red;
+    text-decoration: underline;
+  }
+}

@@ -12,7 +12,7 @@ class ThemeManager
                 detail: err.message,
                 dismissable: yes
         @curTheme = @find name
-        @colorStylesheet = Path.join __dirname, '..', 'styles', 'colors.less'
+        @colorStylesheet = Path.join __dirname, '..', 'style', 'colors.less'
 
     get: ->
         @curTheme

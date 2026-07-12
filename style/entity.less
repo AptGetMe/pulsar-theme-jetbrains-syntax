@@ -1,0 +1,76 @@
+// identifier
+.syntax--entity {
+  color: @very-light-gray;
+
+  // function(parameter)
+  &.syntax--parameter {
+    color: @very-light-gray;
+  }
+
+  // self cls iota
+  &.syntax--support {
+    color: @red;
+  }
+
+  // function method
+  &.syntax--function {
+    color: @blue;
+
+    // len print
+    &.syntax--support {
+      color: @cyan;
+    }
+  }
+
+  // add
+  &.syntax--operator {
+    color: @blue;
+
+    // %>% <=>
+    &.syntax--symbolic {
+      color: @very-light-gray;
+    }
+  }
+
+  // Class
+  &.syntax--type {
+    color: @light-orange;
+    text-decoration: underline;
+
+    // String List
+    &.syntax--support {
+      color: @light-orange;
+    }
+
+    // dict map float32
+    &.syntax--fundamental {
+      color: @purple;
+    }
+  }
+
+  // .class :pseudo-class
+  &.syntax--selector {
+    color: @light-orange;
+
+    // #id
+    &.syntax--id {
+      color: @blue;
+    }
+  }
+
+  // div span
+  &.syntax--tag {
+    color: @red;
+    text-decoration: underline;
+  }
+
+  // href src alt
+  &.syntax--attribute {
+    color: @orange;
+  }
+
+  // height position border
+  &.syntax--property {
+    color: @very-light-gray;
+  }
+}

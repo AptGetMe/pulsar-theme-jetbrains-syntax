@@ -1,0 +1,24 @@
+// /* comment */
+.syntax--comment {
+  color: @light-gray;
+
+  // @param TODO NOTE
+  &.syntax--caption {
+    color: lighten(@light-gray, 5);
+    font-weight: bold;
+    text-decoration: underline;
+  }
+
+  // variable function type
+  &.syntax--term {
+    color: lighten(@light-gray, 5);
+    font-weight: bold;
+  }
+
+  // { } / .
+  &.syntax--punctuation {
+    color: @light-gray;
+    font-weight: normal;
+    text-decoration: none;
+  }
+}

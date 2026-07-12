@@ -1,0 +1,35 @@
+// if for return import
+.syntax--keyword {
+  color: @purple;
+
+  // global static let class
+  &.syntax--storage {
+    color: @purple;
+  }
+
+  // int char float
+  &.syntax--type {
+    color: @purple;
+    text-decoration: underline;
+  }
+
+  // and or new del
+  &.syntax--operator {
+    color: @very-light-gray;
+  }
+
+  // super
+  &.syntax--function {
+    color: @red;
+  }
+
+  // this self
+  &.syntax--variable {
+    color: @red;
+  }
+
+  // = + && | << ?
+  &.syntax--symbolic {
+    color: @very-light-gray;
+  }
+}
