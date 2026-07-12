@@ -31,9 +31,7 @@ class ThemeManager
             else atom.notifications.addError 'unknown theme',
                 detail: name,
                 dismissable: yes
-        console.log 'about to write palette'
         atom.config.set 'theme-jetbrains-syntax.palette', @curTheme
-        console.log 'done to write palette'
     
     refresh: (palette) ->
         less = ("@#{name}: #{color.toHexString()};" for name, color of palette).join '\n'
@@ -55,8 +53,9 @@ class ThemeManager
                         detail: 'stylesheets reloaded'
                         dismissable: yes
                 , 100
-                atom.notifications.addInfo 'refreshing',
-                    detail: 'please be patient...'
-                    dismissable: yes
+
+        atom.notifications.addInfo 'refreshing',
+            detail: 'please be patient...'
+            dismissable: yes
 
 module.exports = ThemeManager
