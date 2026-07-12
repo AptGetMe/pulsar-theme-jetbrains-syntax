@@ -31,23 +31,32 @@ class ThemeManager
             else atom.notifications.addError 'unknown theme',
                 detail: name,
                 dismissable: yes
+        console.log 'about to write palette'
         atom.config.set 'theme-jetbrains-syntax.palette', @curTheme
+        console.log 'done to write palette'
     
     refresh: (palette) ->
         less = ("@#{name}: #{color.toHexString()};" for name, color of palette).join '\n'
-        
-        try
-            Fs.appendFileSync @colorStylesheet, less, 'utf8'
-        catch err
-            atom.notifications.addError 'error writing new less stylesheet file',
+
+        Fs.appendFile @colorStylesheet, less, 'utf8', (err) ->
+            if err then atom.notifications.addError 'error writing new less stylesheet file',
                 detail: err.message,
                 dismissable: yes
+            else
+                setTimeout ->
+                    atom.themes.reloadBaseStylesheets()
+                    for pack in atom.packages.getActivePackages() when pack.getType() == 'atom' && pack.getStylesheetPaths().length
+                        pack.reloadStylesheets()
 
-        atom.themes.reloadBaseStylesheets()
-        for pack in atom.packages.getActivePackages()
-            pack.reloadStylesheets()
+                    for theme in atom.themes.getActiveThemes()
+                        theme.reloadStylesheets()
 
-        for theme in atom.themes.getActiveThemes()
-            theme.reloadStylesheets()
+                    atom.notifications.addSuccess 'done!',
+                        detail: 'stylesheets reloaded'
+                        dismissable: yes
+                , 100
+                atom.notifications.addInfo 'refreshing',
+                    detail: 'please be patient...'
+                    dismissable: yes
 
 module.exports = ThemeManager
