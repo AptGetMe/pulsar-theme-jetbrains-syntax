@@ -5,45 +5,45 @@
 @syntax-text-color: @text;
 @syntax-cursor-color: @cursor;
 @syntax-selection-color: @selection;
-@syntax-selection-flash-color: #00f; // Color the selection is 'flashed' when you run find next
+@syntax-selection-flash-color: @selection_flash; // Color the selection is 'flashed' when you run find next
 @syntax-background-color: @background;
 
 // Guide colors
-@syntax-wrap-guide-color: #ccc;
-@syntax-indent-guide-color: #ccc;
-@syntax-invisible-character-color: #ccc;
+@syntax-wrap-guide-color: @wrap_guide;
+@syntax-indent-guide-color: @indent_guide;
+@syntax-invisible-character-color: @invisible_character;
 
 // For find and replace markers
-@syntax-result-marker-color: #444;
-@syntax-result-marker-color-selected: #000;
+@syntax-result-marker-color: @result_marker;
+@syntax-result-marker-color-selected: @result_marker_selected;
 
 // Gutter colors
-@syntax-gutter-text-color: #333;
-@syntax-gutter-text-color-selected: #000;
-@syntax-gutter-background-color: #ccc;
-@syntax-gutter-background-color-selected: #eee;
+@syntax-gutter-text-color: @gutter_text;
+@syntax-gutter-text-color-selected: @gutter_text_selected;
+@syntax-gutter-background-color: @gutter_background;
+@syntax-gutter-background-color-selected: @gutter_background_selected;
 
 // For git diff info. i.e. in the gutter
-@syntax-color-renamed: blue;
-@syntax-color-added: green;
-@syntax-color-modified: orange;
-@syntax-color-removed: red;
+@syntax-color-renamed: @git_renamed;
+@syntax-color-added: @git_added;
+@syntax-color-modified: @git_modified;
+@syntax-color-removed: @git_removed;
 
 // For language entity colors
-@syntax-color-variable: #DF6A73;
-@syntax-color-comment: #888;
-@syntax-color-constant: #DF6A73;
-@syntax-color-property: #DF6A73;
-@syntax-color-value: #D29B67;
-@syntax-color-function: #61AEEF;
-@syntax-color-method: @syntax-color-function;
-@syntax-color-class: #E5C17C;
-@syntax-color-keyword: #a431c4;
-@syntax-color-tag: #b72424;
-@syntax-color-attribute: #87400d;
-@syntax-color-import: #97C378;
-@syntax-color-snippet: #97C378;
-@syntax-color-string: #97C378;
+@syntax-color-variable: @variables;
+@syntax-color-comment: @comments;
+@syntax-color-constant: @constants;
+@syntax-color-property: @properties;
+@syntax-color-value: @values;
+@syntax-color-function: @functions;
+@syntax-color-method: @methods;
+@syntax-color-class: @classes;
+@syntax-color-keyword: @keywords;
+@syntax-color-tag: @tags;
+@syntax-color-attribute: @attributes;
+@syntax-color-import: @imports;
+@syntax-color-snippet: @snippets;
+@syntax-color-string: @strings;
 
 // Terminal variables
 
