@@ -1,39 +1,50 @@
 // "string"
 .syntax--string {
-  color: @green;
+  color: @strings;
 
   // :immutable
   &.syntax--immutable {
-    color: @green;
+    color: @strings;
   }
 
   // ${variable} %().2f {0:<30}
   &.syntax--part {
-    color: darken(@green, 15%);
+    color: darken(@strings, 15%);
   }
 
   // /^reg[ex]?p/
   &.syntax--regexp {
-    color: @green;
+    color: @regexps;
 
+    .syntax--regexp {
+      color: @regexps;
+    }
     // ^ $ \b ? + i
     &.syntax--language {
-      color: @cyan;
+      color: @regexps;
     }
-
+    
+    .syntax--keyword {
+      color: @regexps;
+    }
+    
     // <variable> \1
     &.syntax--variable {
-      color: @cyan;
+      color: @regexps;
     }
 
     // r" /
     &.syntax--punctuation {
-      color: @green;
+      color: @regexps;
 
       // ( ) [^ ] (?= ) |
       &.syntax--part {
-        color: @cyan;
+        color: @regexps;
       }
     }
+  }
+
+  &.syntax--unquoted {
+    color: @strings_unquoted;
   }
 }

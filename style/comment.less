@@ -1,24 +1,44 @@
 // /* comment */
 .syntax--comment {
-  color: @light-gray;
+  color: @comments;
 
   // @param TODO NOTE
   &.syntax--caption {
-    color: lighten(@light-gray, 5);
+    color: lighten(@comments, 5);
     font-weight: bold;
     text-decoration: underline;
   }
 
   // variable function type
   &.syntax--term {
-    color: lighten(@light-gray, 5);
+    color: lighten(@comments, 5);
     font-weight: bold;
   }
 
   // { } / .
   &.syntax--punctuation {
-    color: @light-gray;
+    color: @comments;
     font-weight: normal;
     text-decoration: none;
   }
+
+&.syntax--block {
+    &.syntax--documentation {
+      color: @comments_doc;
+
+      .syntax--punctuation {
+        color: @comments_doc;
+      }
+      .syntax--storage {
+        color: @text;
+      }
+      .syntax--variable {
+        color: @text;
+      }
+      .syntax--tag {
+        color: @comments_tag;
+        font-weight: bold;
+      }
+    }
+  } 
 }
