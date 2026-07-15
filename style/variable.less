@@ -1,0 +1,36 @@
+.syntax--variable {
+  color: @variables;
+
+  &.syntax--parameter {
+    color: @text;
+    &.syntax--method {
+      color: @variables;
+    }
+  }
+
+  &.syntax--assignment {
+    color: @variables;
+  }
+
+  &.syntax--declaration {
+    color: @text;
+  }
+
+  &.syntax--enum {
+    color: @variables;
+    font-style: italic;
+  }
+
+  &.syntax--property {
+    color: @properties;
+    font-style: italic;
+  }
+
+  &.syntax--this {
+    color: @keywords;
+  }
+
+  &.syntax--member {
+    color: @text;
+  }
+}

@@ -1,35 +1,48 @@
 // if for return import
 .syntax--keyword {
-  color: @purple;
+  color: @keywords;
 
   // global static let class
   &.syntax--storage {
-    color: @purple;
+    color: @classes;
   }
 
   // int char float
   &.syntax--type {
-    color: @purple;
+    color: @keywords;
     text-decoration: underline;
   }
 
   // and or new del
   &.syntax--operator {
-    color: @very-light-gray;
+    color: @text;
+
+    &.syntax--typeof {
+      color: @keywords;
+    }
   }
 
   // super
   &.syntax--function {
-    color: @red;
+    color: @methods;
   }
 
   // this self
   &.syntax--variable {
-    color: @red;
+    color: @variables;
   }
 
   // = + && | << ?
   &.syntax--symbolic {
-    color: @very-light-gray;
+    color: @constants;
+  }
+
+  &.syntax--unit {
+    color: @text;
+  }
+
+  &.syntax--tag {
+    color: @tags;
+    font-weight: bold;
   }
 }

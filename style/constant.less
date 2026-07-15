@@ -1,44 +1,49 @@
 // literal
 .syntax--constant {
-  color: @orange;
+  color: @constants;
 
   // &lt; 'a'
   &.syntax--character {
-    color: @green;
+    color: @methods;
 
     // \" \' \g \.
     &.syntax--escape {
-      color: @green;
+      color: @constants_escape;
     }
 
     // \u2661 \n \t \W .
     &.syntax--code {
-      color: @cyan;
+      color: @constants_escape;
     }
+  }
+
+  &.syntax--enum {
+    color: @variables;
+    font-style: italic;
   }
 
   // 4 1.3 0x29
   &.syntax--numeric {
-    color: @orange;
+    color: @constants;
 
     // px % cm hz
     &.syntax--unit {
-      color: @orange;
+      color: @constants;
     }
   }
 
   // #b294bb
   &.syntax--color {
-    color: @cyan;
+    color: @constants_escape;
   }
 
   // true false nil
   &.syntax--language {
-    color: @orange;
+    color: @keywords;
 
     // ...
     &.syntax--symbolic {
-      color: @very-light-gray;
+      color: @constants_escape;
     }
   }
 }
