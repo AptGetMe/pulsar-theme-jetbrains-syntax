@@ -1,76 +1,102 @@
 // identifier
 .syntax--entity {
-  color: @very-light-gray;
+  color: @keywords;
 
   // function(parameter)
   &.syntax--parameter {
-    color: @very-light-gray;
+    color: @properties;
   }
 
   // self cls iota
   &.syntax--support {
-    color: @red;
+    color: @properties;
   }
 
   // function method
   &.syntax--function {
-    color: @blue;
+    color: @functions;
 
     // len print
     &.syntax--support {
-      color: @cyan;
+      color: @properties;
+    }
+  }
+
+  &.syntax--method {
+    font-style: italic;
+    &.syntax--constructor {
+      font-style: normal;
     }
   }
 
   // add
   &.syntax--operator {
-    color: @blue;
+    color: @keywords;
 
     // %>% <=>
     &.syntax--symbolic {
-      color: @very-light-gray;
+      color: @keywords;
     }
   }
 
+  .syntax--attribute-name {
+    color: @attributes;
+  }
+
+  &.syntax--pseudo-class {
+    color: @tags;
+  }
+  
   // Class
   &.syntax--type {
-    color: @light-orange;
-    text-decoration: underline;
+    color: @classes;
 
     // String List
     &.syntax--support {
-      color: @light-orange;
+      color: @classes;
     }
 
     // dict map float32
     &.syntax--fundamental {
-      color: @purple;
+      color: @classes;
+    }
+
+    &.syntax--annotated {
+      color: @annotations;
     }
   }
 
+  &.syntax--inherited-class {
+    color: @text;
+  }    
+
   // .class :pseudo-class
   &.syntax--selector {
-    color: @light-orange;
+    color: @classes;
 
     // #id
     &.syntax--id {
-      color: @blue;
+      color: @classes;
     }
   }
 
   // div span
   &.syntax--tag {
-    color: @red;
+    color: @tags;
     text-decoration: underline;
   }
 
   // href src alt
   &.syntax--attribute {
-    color: @orange;
+    color: @attributes;
   }
 
   // height position border
   &.syntax--property {
-    color: @very-light-gray;
+    color: @properties;
+  }
+
+  &.syntax--label {
+    color: @text;
   }
 }

@@ -1,0 +1,47 @@
+.syntax--support {
+  color: @properties;
+
+  &.syntax--method {
+    color: @methods;
+  }
+
+  &.syntax--function {
+    color: @functions;
+
+    &.syntax--builtin {
+      color: @keywords;
+    }
+
+    &.syntax--method {
+      color: @methods;
+    }
+  }
+
+  &.syntax--object {
+    color: @text;
+  }
+
+  &.syntax--property-name {
+    color: @text;
+  }
+
+  &.syntax--constant {
+    color: @text;
+  }
+
+  &.syntax--color {
+    color: @strings;
+  }
+
+  &.syntax--property-value {
+    color: @strings;
+  }
+
+  &.syntax--class {
+    color: @text;
+  }
+
+  &.syntax--annotation {
+    color: @annotations;
+  }
+}
