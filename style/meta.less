@@ -1,0 +1,17 @@
+.syntax--meta {
+  &.syntax--property-value {
+    color: @strings;
+  }
+  &.syntax--doctype {
+    color: @strings;
+  }
+  &.syntax--key {
+    .syntax--string {
+      color: @properties;
+    }
+  }
+  &.syntax--link {
+    color: @links;
+    text-decoration: underline;
+  }
+}

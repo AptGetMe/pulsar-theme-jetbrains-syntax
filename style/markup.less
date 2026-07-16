@@ -1,77 +1,112 @@
 // __formatted__
 .syntax--markup {
-  color: @red;
+  color: @text;
+
+  .syntax--markup {
+    color: @attributes
+  }
 
   // # Heading
   &.syntax--heading {
-    color: @blue;
+    color: @properties;
   }
 
   // - item
   &.syntax--list {
-    color: @red;
+    color: @text;
+
+    .syntax--markup {
+      color: @text;
+    }
+  }
+
+  &.syntax--table {
+    color: @keywords;
+    
+    .syntax--markup {
+      color: @text;
+    }
   }
 
   // > quote
   &.syntax--quote {
-    color: @orange;
+    color: @strings;
+
+    .syntax--markup {
+      color: @strings;
+    }
+
+    .syntax--punctuation {
+      color: @strings;
+    }
+
+    .syntax--link {
+      color: @links;
+      font-style: italic;
+    }
   }
 
   // **bold**
   &.syntax--bold {
-    color: @orange;
+    color: @strings;
     font-weight: bold;
   }
 
   // *italic*
   &.syntax--italic {
-    color: @purple;
+    color: @strings;
     font-style: italic;
   }
 
   // __underline__
   &.syntax--underline {
-    color: @orange;
+    color: @strings;
     text-decoration: underline;
   }
 
   // ~~strike~~
   &.syntax--strike {
-    color: @red;
+    color: @strings;
+    text-decoration: line-through;
   }
 
   // `raw`
   &.syntax--raw {
-    color: @green;
+    color: @strings;
   }
 
   // url.com (path) [reference]
   &.syntax--link {
-    color: @orange;
+    color: @links;
+    font-style: italic;
   }
 
   // {++ inserted ++}
   &.syntax--inserted {
-    color: @green;
+    color: @strings;
   }
 
   // {== inserted ==}
   &.syntax--highlighted {
-    color: @green;
+    color: @strings;
   }
 
   // {-- deleted --}
   &.syntax--deleted {
-    color: @red;
+    color: @strings;
   }
 
   // {~~ from~>to ~~}
   &.syntax--changed {
-    color: @orange;
+    color: @strings;
   }
 
   // {>> commented <<}
   &.syntax--commented {
-    color: @light-gray;
+    color: @strings;
+  }
+  
+  &.syntax--horizontal-rule {
+    color: @keywords;
   }
 }
