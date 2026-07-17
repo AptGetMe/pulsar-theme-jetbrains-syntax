@@ -3,7 +3,7 @@ Path = require 'path'
 Fs = require 'fs'
 
 class ThemeManager
-    constructor: (name) ->
+    constructor: ->
         try
             cson = Path.join __dirname, 'themes.cson'
             @themes = Season.readFileSync cson
@@ -11,6 +11,7 @@ class ThemeManager
             atom.notifications.addError 'error reading or parsing theme cson file while generating config',
                 detail: err.message,
                 dismissable: yes
+        name = atom.config.get('theme-jetbrains-syntax.theme') ? 'light'
         @curTheme = @find name
         @colorStylesheet = Path.join __dirname, '..', 'style', 'colors.less'
 
@@ -33,8 +34,13 @@ class ThemeManager
                 name = null
 
     reset: ->
-        atom.config.set 'theme-jetbrains-syntax.palette', @curTheme
-    
+        curPalette = atom.config.get 'theme-jetbrains-syntax.palette'
+        if (color.isEqual @curTheme[name] for name, color of curPalette).every Boolean
+            @refresh curPalette
+        else
+            atom.config.set 'theme-jetbrains-syntax.palette', @curTheme
+
+
     refresh: (palette) ->
         less = ("@#{name}: #{color.toHexString()};" for name, color of palette).join '\n'
 
@@ -45,7 +51,7 @@ class ThemeManager
             else
                 setTimeout ->
                     atom.themes.reloadBaseStylesheets()
-                    for pack in atom.packages.getActivePackages() when pack.getType() == 'atom' && pack.getStylesheetPaths().length
+                    for pack in atom.packages.getActivePackages() when pack.getType() is 'atom' and pack.getStylesheetPaths().length
                         pack.reloadStylesheets()
 
                     for theme in atom.themes.getActiveThemes()

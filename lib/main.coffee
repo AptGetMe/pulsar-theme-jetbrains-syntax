@@ -2,7 +2,7 @@ Path = require 'path'
 { CompositeDisposable } = require 'atom'
 ThemeManager = require './theme-manager'
 
-mgr = new ThemeManager('light')
+mgr = new ThemeManager()
 
 module.exports =
 config:
