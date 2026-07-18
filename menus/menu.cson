@@ -1,0 +1,18 @@
+'menu': [
+    label: 'Packages'
+    submenu: [
+        label: 'Jetbrains Syntax'
+        submenu: [
+            label: 'Reset'
+            command: 'theme-jetbrains-syntax:reset'
+        ]
+    ]
+]
+'context-menu':
+    'atom-text-editor': [
+        label: 'Jetbrains Syntax'
+        submenu: [
+            label: 'Reset'
+            command: 'theme-jetbrains-syntax:reset'
+        ]
+    ]

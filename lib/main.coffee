@@ -1,4 +1,5 @@
 Path = require 'path'
+Season = require 'season'
 { CompositeDisposable } = require 'atom'
 ThemeManager = require './theme-manager'
 
@@ -44,7 +45,12 @@ activate: (state) ->
     console.log 'activating'
 
     @subscriptions = new CompositeDisposable()
+    
     atom.keymaps.loadKeymap Path.join __dirname, '..', 'keymaps', 'keymap.cson'
+    
+    menus = Season.readFileSync Path.join __dirname, '..', 'menus', 'menu.cson'
+    atom.menu.add menus['menu']
+    atom.contextMenu.add menus['context-menu']
 
     @subscriptions.add atom.config.onDidChange 'theme-jetbrains-syntax.theme', (event) ->
         mgr.set event.newValue
