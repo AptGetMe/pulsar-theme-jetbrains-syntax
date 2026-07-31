@@ -2,7 +2,7 @@
 
 # Theme Jetbrains Syntax
 
-![Theme Demo Walkthrough](./assets/theme-demo.gif)
+![Theme Demo Walkthrough](https://github.com/user-attachments/assets/6ce40d22-f0fb-402b-bc71-0ff533fd7a45)
 
 Carefully crafted theme based on Jetbrains comfortable syntax highlighting.  \
 Made for Pulsar ☄️
