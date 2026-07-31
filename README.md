@@ -46,6 +46,10 @@ You can also do the same thing from the menu ```packages -> Jetbrains Syntax -> 
 
 I want this theme to be the best yet!  So if you can help, that's great.  Please check the [roadmap](./ROADMAP.md) for what is most important to work on as I press toward v1.0!  Also, read the [contributing](./CONTRIBUTING.md) guide, which should help you understand how Theme Jetbrains package works.
 
+## AI Policy (for devs)
+
+The spirit of Theme Jetbrains is made by people for people.  I want it to be cool and fun with the artistic touch only humans make.  I don't want it to be made by robots - what kinda theme is that?  So, if you use AI tools in your workflow, please make sure it's ONLY for help, and NOT to type the code for you!
+
 ## Support the Project
 
 If you enjoy this theme, please star this repository on github and the Pulsar Package Registary and share it with your friends online!

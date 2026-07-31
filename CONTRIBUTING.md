@@ -1,6 +1,6 @@
 # Contributing Guide
 
-Thanks for wanting to help! 🥳  Hopefully, this guide will get you up to speed.
+Thanks for wanting to help! 🤗  Hopefully, this guide will get you up to speed.
 
 ## Prerequisite
 
@@ -14,7 +14,7 @@ It might be a good idea to uninstall Theme Jetbrains if you had it installed the
 - Create link so Pulsar know Theme Jetbrains exists  ```pulsar -p link -d .```
 - Open Pulsar in dev mode to see *Theme Jetbrains* option in Settings -> Themes  ```pulsar --dev .```
 
-Code away!  Anytime you want to begin a new coding session, all you have to run is the last command above ```pulsar --dev .``` from the cloned repo project root.
+Code away! 🥳  Anytime you want to begin a new coding session, all you have to run is the last command above ```pulsar --dev .``` from the cloned repo project root.
 
 ## Dev Workflow
 
@@ -52,3 +52,4 @@ Less styling rules and variables
 ## Pull Request
 
 It'd be a good idea to create an issue first before spending time on a pull request, especially if your idea is not on the roadmap.
+Please make sure to follow the AI policy guidelines!  I'd really appreciate your understanding.  
