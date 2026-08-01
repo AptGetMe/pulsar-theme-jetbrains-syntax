@@ -1,0 +1,17 @@
+.jetbrains-mono(@src, @weight, @style) {
+    font-family: 'JetbrainsMono';
+    src: url('atom://theme-jetbrains-syntax/fonts/@{src}.woff2') format('woff2');
+    font-weight: @weight;
+    font-style: @style;
+    font-display: swap;
+}
+
+@font-face {
+    .jetbrains-mono('JetBrainsMono-Regular', normal, normal)
+}
+
+atom-text-editor {
+    --editor-font-family: 'JetbrainsMono';
+    --editor-font-size: small;
+    --editor-line-height: 22px;
+}
