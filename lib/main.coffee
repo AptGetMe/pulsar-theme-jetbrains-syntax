@@ -1,9 +1,13 @@
 Path = require 'path'
 Season = require 'season'
-{ CompositeDisposable } = require 'atom'
-ThemeManager = require './theme-manager'
 
-mgr = new ThemeManager()
+{ CompositeDisposable } = require 'atom'
+
+ThemeManager = require './theme-manager'
+FontManager = require './font-manager'
+
+themeMgr = new ThemeManager()
+fontMgr = new FontManager()
 
 module.exports =
 config:
@@ -36,7 +40,7 @@ config:
         type: 'object'
         properties: do ->
             Object.fromEntries(
-                for own name, color of mgr.get()
+                for own name, color of themeMgr.get()
                     [name, title: name, type: 'color', default: color]
             )
         order: 3
@@ -53,11 +57,20 @@ activate: (state) ->
     atom.contextMenu.add menus['context-menu']
 
     @subscriptions.add atom.config.onDidChange 'theme-jetbrains-syntax.theme', (event) ->
-        mgr.set event.newValue
+        themeMgr.set event.newValue
     @subscriptions.add atom.config.onDidChange 'theme-jetbrains-syntax.palette', (event) ->
-        mgr.refresh event.newValue
+        themeMgr.refresh event.newValue
+    @subscriptions.add atom.config.onDidChange 'theme-jetbrains-syntax.font', (event) ->
+        switch event.newValue
+            when 'none' then fontMgr.unload()
+            when 'jetbrains' then fontMgr.load()
+            else
+                atom.notifications.addError 'unknown font',
+                    detail: name,
+                    dismissable: yes
+
     @subscriptions.add atom.commands.add 'atom-text-editor', 'theme-jetbrains-syntax:reset': ->
-        mgr.reset()
+        themeMgr.reset()
 
 deactivate: ->
     console.log 'deactivating'
