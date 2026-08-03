@@ -1,6 +1,9 @@
 Season = require 'season'
 Path = require 'path'
+
 { File } = require 'atom'
+
+Utils = require './utils'
 
 class ThemeManager
     constructor: ->
@@ -51,17 +54,8 @@ class ThemeManager
                
         @colorStylesheet.write less
             .then ->
-                setTimeout ->
-                    atom.themes.reloadBaseStylesheets()
-                    for pack in atom.packages.getActivePackages() when pack.getType() is 'atom' and pack.getStylesheetPaths().length
-                        pack.reloadStylesheets()
-
-                    for theme in atom.themes.getActiveThemes()
-                        theme.reloadStylesheets()
-
-                    atom.notifications.addSuccess 'done!',
-                        detail: 'stylesheets reloaded'
-                        dismissable: yes
+                setTimeout -> 
+                    Utils.reloadStylesheets()
                 , 100
             .catch (err) ->
                 atom.notifications.addError 'error writing new less stylesheet file',

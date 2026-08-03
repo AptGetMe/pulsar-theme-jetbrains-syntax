@@ -1,3 +1,5 @@
+Utils = require './utils'
+
 class FontManager
     constructor: ->
         curFont = atom.config.get 'theme-jetbrains-syntax.font'
@@ -16,16 +18,7 @@ class FontManager
         workspace.style.setProperty('--editor-line-height', '1.4');
 
         setTimeout ->
-            atom.themes.reloadBaseStylesheets()
-            for pack in atom.packages.getActivePackages() when pack.getType() is 'atom' and pack.getStylesheetPaths().length
-                pack.reloadStylesheets()
-
-            for theme in atom.themes.getActiveThemes()
-                theme.reloadStylesheets()
-
-            atom.notifications.addSuccess 'done!',
-                detail: 'stylesheets reloaded'
-                dismissable: yes
+            Utils.reloadStylesheets()
         , 100
         atom.notifications.addInfo 'refreshing',
             detail: 'please be patient...'
@@ -37,18 +30,9 @@ class FontManager
         workspace.style.removeProperty('--editor-font-family');
         workspace.style.removeProperty('--editor-font-size');
         workspace.style.removeProperty('--editor-line-height');
-        
+
         setTimeout ->
-            atom.themes.reloadBaseStylesheets()
-            for pack in atom.packages.getActivePackages() when pack.getType() is 'atom' and pack.getStylesheetPaths().length
-                pack.reloadStylesheets()
-
-            for theme in atom.themes.getActiveThemes()
-                theme.reloadStylesheets()
-
-            atom.notifications.addSuccess 'done!',
-                detail: 'stylesheets reloaded'
-                dismissable: yes
+            Utils.reloadStylesheets()
         , 100
         atom.notifications.addInfo 'refreshing',
             detail: 'please be patient...'
