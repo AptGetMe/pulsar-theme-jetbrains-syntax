@@ -1,0 +1,22 @@
+{
+  "$schema": "https://unpkg.com/release-it@20/schema/release-it.json",
+  "git": {
+    "changelog": "npx auto-changelog --stdout --commit-limit false -u --template https://raw.githubusercontent.com/release-it/release-it/main/templates/changelog-compact.hbs",
+    "commitMessage": "chore: release v${version}",
+    "requireCleanWorkingDir": true,
+    "tagName": "v${version}",
+    "tag": true,
+    "push": true
+  },
+  "github": {
+    "release": true,
+    "releaseName": "Release v${version} ! ! !"
+  },
+  "npm": {
+    "publish": false
+  },
+  "hooks": {
+    "after:bump": "npx auto-changelog -p && git add CHANGELOG.md",
+    "after:release": "pulsar -p publish --tag v${version}!"
+  }
+}
