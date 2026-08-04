@@ -23,13 +23,14 @@
     "atom": ">=1.0.0 <2.0.0"
   },
   "scripts": {
-    "release": "read -p 'GITHUB_TOKEN: ' GITHUB_TOKEN && export GITHUB_TOKEN=$GITHUB_TOKEN && release-it"
+    "release": "dotenv release-it"
   },
   "dependencies": {
     "season": "^6.0.2"
   },
   "devDependencies": {
     "auto-changelog": "^2.6.0",
+    "dotenv-cli": "^11.0.0",
     "release-it": "^21.0.1"
   }
 }

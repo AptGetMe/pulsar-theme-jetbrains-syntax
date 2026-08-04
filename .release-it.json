@@ -2,21 +2,24 @@
   "$schema": "https://unpkg.com/release-it@20/schema/release-it.json",
   "git": {
     "changelog": "npx auto-changelog --stdout --commit-limit false -u --template https://raw.githubusercontent.com/release-it/release-it/main/templates/changelog-compact.hbs",
-    "commitMessage": "chore: release v${version}",
     "requireCleanWorkingDir": true,
-    "tagName": "v${version}",
+    "commit": true,
+    "commitMessage": "chore: release v${version}",
     "tag": true,
-    "push": true
+    "tagName": "v${version}",
+    "tagAnnotation": "Release tag v${version}",
+    "push": true,
+    "pushArgs": ["--follow-tags"]
   },
   "github": {
     "release": true,
-    "releaseName": "Release v${version} ! ! !"
+    "releaseName": "Release Theme Jetbrains v${version} ! ! !"
   },
   "npm": {
     "publish": false
   },
   "hooks": {
     "after:bump": "npx auto-changelog -p && git add CHANGELOG.md",
-    "after:release": "pulsar -p publish --tag v${version}!"
+    "after:release": "pulsar -p publish --tag v${version}"
   }
 }
