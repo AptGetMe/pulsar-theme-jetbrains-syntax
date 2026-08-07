@@ -7,19 +7,20 @@
     "commitMessage": "chore: release v${version}",
     "tag": true,
     "tagName": "v${version}",
-    "tagAnnotation": "Release tag v${version}",
+    "tagAnnotation": "Release tag",
     "push": true,
     "pushArgs": ["--follow-tags"]
   },
   "github": {
     "release": true,
+    "draft": true,
     "releaseName": "Release Theme Jetbrains v${version} ! ! !"
   },
   "npm": {
     "publish": false
   },
   "hooks": {
-    "after:bump": "npx auto-changelog -p && git add CHANGELOG.md",
+    "after:bump": "npx auto-changelog -p --sort-commits date --commit-limit false",
     "after:release": "pulsar -p publish --tag v${version}"
   }
 }
