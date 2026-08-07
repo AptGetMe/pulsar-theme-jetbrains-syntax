@@ -1,7 +1,7 @@
 {
   "name": "theme-jetbrains-syntax",
   "theme": "syntax",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Bring the Jetbrains syntax highlighting into Pulsar. ☄️  Theme package with Light, Dark and Darcula modes!  Made with ❤️ for Pulsar.",
   "main": "./lib/main.coffee",
   "mainStyleSheet": "./lib/main.less",
