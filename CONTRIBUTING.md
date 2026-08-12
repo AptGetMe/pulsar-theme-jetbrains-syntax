@@ -52,4 +52,4 @@ Less styling rules and variables
 ## Pull Request
 
 It'd be a good idea to create an issue first before spending time on a pull request, especially if your idea is not on the roadmap.
-Please make sure to follow the AI policy guidelines!  I'd really appreciate your understanding.  
+Please make sure to follow the [AI policy guidelines!](./README.md#Ai-Policy)  I'd really appreciate your understanding.  
