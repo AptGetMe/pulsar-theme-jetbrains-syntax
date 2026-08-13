@@ -4,13 +4,15 @@
 
 ![Theme Demo Walkthrough](https://github.com/user-attachments/assets/6ce40d22-f0fb-402b-bc71-0ff533fd7a45)
 
-Familiar Jetbrains themes for the Pulsar Code Editor ☄️ 
+Three-in-One familiar Jetbrains syntax themes for the Pulsar Code Editor ☄️ 
 
 </div>
 
 Thanks for trying out **Theme Jetbrains!** 🥰  \
-It's a carefully crafted theme based on Jetbrains comfortable syntax highlighting.  \
-> [!IMPORTANT] It only styles the code editor panel (where you actually type code), NOT the full ui.  I intend for it to be used in conjunction with the Theme Jetbrains Ui package for the complete theme experience, which I have not started yet!
+It's a carefully crafted theme based on Jetbrains comfortable syntax highlighting.
+
+> [!IMPORTANT] 
+> It only styles the code editor panel (where you actually type code), NOT the full ui.  I intend for it to be used in conjunction with the Theme Jetbrains Ui package for the complete theme experience, which I have not started yet!
 
 ## Features
 
@@ -23,9 +25,9 @@ This is my first theme ever!  It might be kinda buggy, so bear with me!  My aim 
 
 ## Install
 
-- From the ```Settings -> Install``` pane, search for <kbd>Theme Jetbrains</kbd> and click the install button.  Pease follow [these instructions](https://docs.pulsar-edit.dev/using-pulsar/packages/#pulsar-themes) if you need more help downloading it.
+- From the ```Settings -> Install``` pane, search for ```Theme Jetbrains``` and click the install button.  Pease follow [these instructions](https://docs.pulsar-edit.dev/using-pulsar/packages/#pulsar-themes) if you need more help downloading it.
 
-- Go to the ```Settings -> Themes``` pane and select <kbd>Theme Jetbrains</kbd> in the syntax theme dropdown to set it as the active syntax highlighter.  For more help with this step, please check out [these instructions](https://docs.pulsar-edit.dev/using-pulsar/basics/#changing-the-theme).
+- Go to the ```Settings -> Themes``` pane and select ```Theme Jetbrains``` in the syntax theme dropdown to set it as the active syntax highlighter.  For more help with this step, please check out [these instructions](https://docs.pulsar-edit.dev/using-pulsar/basics/#changing-the-theme).
 
 You can also install using the Pulsar Package Manager.  ```ppm install theme-jetbrains-syntax```
 
@@ -37,7 +39,7 @@ You can also install using the Pulsar Package Manager.  ```ppm install theme-jet
 
 ## How to Use
 
-In the ```Settings -> Themes``` pane, next to the syntax theme dropdown, there is a <kbd>gear</kbd> icon.  Please click that to access Theme Jetbrains package specific settings.
+In the ```Settings -> Themes``` pane, next to the syntax theme dropdown, there is a ⚙️ icon.  Please click that to access Theme Jetbrains package specific settings.
 
 ### Getting Started
 
