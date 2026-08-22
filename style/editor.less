@@ -29,7 +29,7 @@ atom-text-editor {
     background-color: @selection;
   }
 
-  .bracket-matcher .region{
+  .bracket-matcher .region {
     background-color: @bracket_match;
     border: none;
   }
@@ -38,25 +38,39 @@ atom-text-editor {
     background-color: @gutter_background;
     color: @gutter_text;
 
+    &.line-numbers {
+      border-right: 1px solid @indent_guide;
+    }
+
     .line-number {
+      padding-left: 0.7em;
+      letter-spacing: -1px;
+      opacity: 1;
+
       &.cursor-line {
         background-color: @gutter_background_selected;
         color: @gutter_text_selected;
       }
 
-      &.cursor-line-no-selection {
-        color: @gutter_text_selected;
+      .icon-right {
+        display: inline-block;
+        transform: scale(1.3);
+        transform-origin: center;
+        padding-left: 1.8em;
+        padding-right: 0.8em;
+
+        &:hover {
+          cursor: pointer;
+        }
       }
     }
-  }
-
-  .gutter .line-number.folded,
-  .gutter .line-number:after,
-  .fold-marker:after {
-    color: @text;
   }
 }
 
 atom-text-editor[mini] .scroll-view {
   padding-left: 1px;
+}
+
+atom-text-editor .scroll-view {
+  padding-left: 3px;
 }
