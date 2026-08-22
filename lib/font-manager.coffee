@@ -8,14 +8,14 @@ class FontManager
 
             workspace.style.setProperty('--editor-font-family', 'JetBrainsMono');
             workspace.style.setProperty('--editor-font-size', 'small');
-            workspace.style.setProperty('--editor-line-height', '1.4');
+            workspace.style.setProperty('--editor-line-height', '22px');
 
     load: ->
         workspace = document.querySelector('atom-workspace')
 
         workspace.style.setProperty('--editor-font-family', 'JetBrainsMono');
         workspace.style.setProperty('--editor-font-size', 'small');
-        workspace.style.setProperty('--editor-line-height', '1.4');
+        workspace.style.setProperty('--editor-line-height', '22px');
 
         setTimeout ->
             Utils.reloadStylesheets()

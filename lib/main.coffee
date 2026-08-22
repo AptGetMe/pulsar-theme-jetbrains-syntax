@@ -7,7 +7,6 @@ ThemeManager = require './theme-manager'
 FontManager = require './font-manager'
 
 themeMgr = new ThemeManager()
-fontMgr = new FontManager()
 
 module.exports =
 config:
@@ -45,8 +44,13 @@ config:
             )
         order: 3
 
+subscriptions: null
+fontMgr: null
+
 activate: (state) ->
     console.log 'activating'
+
+    @fontMgr = new FontManager()
 
     @subscriptions = new CompositeDisposable()
     
@@ -60,10 +64,10 @@ activate: (state) ->
         themeMgr.set event.newValue
     @subscriptions.add atom.config.onDidChange 'theme-jetbrains-syntax.palette', (event) ->
         themeMgr.refresh event.newValue
-    @subscriptions.add atom.config.onDidChange 'theme-jetbrains-syntax.font', (event) ->
+    @subscriptions.add atom.config.onDidChange 'theme-jetbrains-syntax.font', (event) =>
         switch event.newValue
-            when 'none' then fontMgr.unload()
-            when 'jetbrains' then fontMgr.load()
+            when 'none' then @fontMgr.unload()
+            when 'jetbrains' then @fontMgr.load()
             else
                 atom.notifications.addError 'unknown font',
                     detail: name,
@@ -74,5 +78,7 @@ activate: (state) ->
 
 deactivate: ->
     console.log 'deactivating'
+
+    @fontMgr.unload()
 
     @subscriptions?.dispose()
