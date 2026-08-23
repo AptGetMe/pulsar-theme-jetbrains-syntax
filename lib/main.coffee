@@ -6,8 +6,6 @@ Season = require 'season'
 ThemeManager = require './theme-manager'
 FontManager = require './font-manager'
 
-themeMgr = new ThemeManager()
-
 module.exports =
 config:
     font:
@@ -39,17 +37,19 @@ config:
         type: 'object'
         properties: do ->
             Object.fromEntries(
-                for own name, color of themeMgr.get()
+                for own name, color of ThemeManager.get().jetbrains_light
                     [name, title: name, type: 'color', default: color]
             )
         order: 3
 
 subscriptions: null
+themeMgr: null
 fontMgr: null
 
 activate: (state) ->
     console.log 'activating'
 
+    @themeMgr = new ThemeManager()
     @fontMgr = new FontManager()
 
     @subscriptions = new CompositeDisposable()
@@ -60,10 +60,10 @@ activate: (state) ->
     atom.menu.add menus['menu']
     atom.contextMenu.add menus['context-menu']
 
-    @subscriptions.add atom.config.onDidChange 'theme-jetbrains-syntax.theme', (event) ->
-        themeMgr.set event.newValue
-    @subscriptions.add atom.config.onDidChange 'theme-jetbrains-syntax.palette', (event) ->
-        themeMgr.refresh event.newValue
+    @subscriptions.add atom.config.onDidChange 'theme-jetbrains-syntax.theme', (event) =>
+        @themeMgr.set event.newValue
+    @subscriptions.add atom.config.onDidChange 'theme-jetbrains-syntax.palette', (event) =>
+        @themeMgr.refresh event.newValue
     @subscriptions.add atom.config.onDidChange 'theme-jetbrains-syntax.font', (event) =>
         switch event.newValue
             when 'none' then @fontMgr.unload()
@@ -73,8 +73,8 @@ activate: (state) ->
                     detail: name,
                     dismissable: yes
 
-    @subscriptions.add atom.commands.add 'atom-text-editor', 'theme-jetbrains-syntax:reset': ->
-        themeMgr.reset()
+    @subscriptions.add atom.commands.add 'atom-text-editor', 'theme-jetbrains-syntax:reset': =>
+        @themeMgr.reset()
 
 deactivate: ->
     console.log 'deactivating'

@@ -6,20 +6,20 @@ Path = require 'path'
 Utils = require './utils'
 
 class ThemeManager
-    constructor: ->
+    @get: ->
         try
             cson = Path.join __dirname, 'themes.cson'
-            @themes = Season.readFileSync cson
+            Season.readFileSync cson
         catch err
             atom.notifications.addError 'error reading or parsing theme cson file while generating config',
                 detail: err.message,
                 dismissable: yes
-        name = atom.config.get('theme-jetbrains-syntax.theme') ? 'light'
-        @curTheme = @find name
-        @colorStylesheet = new File Path.join __dirname, '..', 'style', 'colors.less'
 
-    get: ->
-        @curTheme
+    constructor: ->
+        @colorStylesheet = new File Path.join __dirname, '..', 'style', 'colors.less'
+        @themes = ThemeManager.get()
+        @set atom.config.get('theme-jetbrains-syntax.theme') ? 'light'
+        @refresh atom.config.get 'theme-jetbrains-syntax.palette'
 
     set: (name) ->
         @curTheme = @find name
