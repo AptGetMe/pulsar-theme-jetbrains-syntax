@@ -10,6 +10,10 @@ atom-text-editor {
 
   .indent-guide {
     color: @indent_guide;
+
+    &:nth-child(1 of .indent-guide) {
+      box-shadow: none;
+    }
   }
 
   .invisible-character {
