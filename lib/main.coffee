@@ -5,6 +5,7 @@ Season = require 'season'
 
 ThemeManager = require './theme-manager'
 FontManager = require './font-manager'
+CursorManager = require './cursor-manager'
 
 module.exports =
 config:
@@ -45,20 +46,24 @@ config:
 subscriptions: null
 themeMgr: null
 fontMgr: null
+cursorMgr: null
 
 activate: (state) ->
     console.log 'activating'
 
+    @subscriptions = new CompositeDisposable()
     @themeMgr = new ThemeManager()
     @fontMgr = new FontManager()
-
-    @subscriptions = new CompositeDisposable()
-    
-    atom.keymaps.loadKeymap Path.join __dirname, '..', 'keymaps', 'keymap.cson'
     
     menus = Season.readFileSync Path.join __dirname, '..', 'menus', 'menu.cson'
     atom.menu.add menus['menu']
     atom.contextMenu.add menus['context-menu']
+    atom.keymaps.loadKeymap Path.join __dirname, '..', 'keymaps', 'keymap.cson'
+
+    atom.workspace.observeTextEditors (editor) => 
+        @cursorMgr = new CursorManager(editor)
+        @subscriptions.add editor.onDidChangeCursorPosition (event) => 
+            @cursorMgr.highlight event.newBufferPosition
 
     @subscriptions.add atom.config.onDidChange 'theme-jetbrains-syntax.theme', (event) =>
         @themeMgr.set event.newValue
