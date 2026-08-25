@@ -55,8 +55,7 @@ atom-text-editor {
         position: relative; 
     
         .region {
-          background-color: @gutter_background_selected;
-          color: @gutter_text_selected;
+          background-color: @cursor_line;
           margin-left: -3px;
         }
       }
@@ -77,8 +76,8 @@ atom-text-editor {
       opacity: 1;
 
       &.cursor-line-current {
-        background-color: @gutter_background_selected;
-        color: @gutter_text_selected;
+        background-color: @cursor_line;
+        color: @cursor_line_text;
       }
 
       .icon-right {
