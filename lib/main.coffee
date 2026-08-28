@@ -60,10 +60,10 @@ activate: (state) ->
     atom.contextMenu.add menus['context-menu']
     atom.keymaps.loadKeymap Path.join __dirname, '..', 'keymaps', 'keymap.cson'
 
-    atom.workspace.observeTextEditors (editor) => 
-        @cursorMgr = new CursorManager(editor)
-        @subscriptions.add editor.onDidChangeCursorPosition (event) => 
-            @cursorMgr.highlight event.newBufferPosition
+    @subscriptions.add atom.workspace.observeActiveTextEditor (editor) => 
+        if editor
+            @cursorMgr?.dispose()
+            @cursorMgr = new CursorManager editor
 
     @subscriptions.add atom.config.onDidChange 'theme-jetbrains-syntax.theme', (event) =>
         @themeMgr.set event.newValue
@@ -85,5 +85,6 @@ deactivate: ->
     console.log 'deactivating'
 
     @fontMgr.unload()
+    @cursorMgr?.dispose()
 
     @subscriptions?.dispose()
