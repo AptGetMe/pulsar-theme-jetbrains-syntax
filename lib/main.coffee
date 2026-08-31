@@ -10,19 +10,14 @@ CursorManager = require './cursor-manager'
 module.exports =
 config:
     font:
-        title: 'Code Font'
-        description: 'Activates specially curiated font.'
-        type: 'string'
-        default: 'none'
-        enum: [
-            {value: 'none', description: 'use system font'}
-            {value: 'jetbrains', description: 'use Jetbrains Mono font (credit to Jetbrains)'}
-        ]
-        radio: yes
+        title: 'JetBrains Mono Font  (credit: Jetbrains)'
+        description: 'Activate specially curiated **JetBrains Mono** font for code editing panel.  Note that this will disable font options in the general editor settings: ```Default Font Size``` ```Font Family``` ```Font Size```'
+        type: 'boolean'
+        default: 'false'
         order: 1
     theme:
         title: 'Syntax Theme'
-        description: 'Choose theme syntax highlighting.'
+        description: 'Choose a syntax highlighting theme for the code editing panel.'
         type: 'string'
         default: 'light'
         enum: [
@@ -34,13 +29,14 @@ config:
         order: 2
     palette:
         title: 'Color Palette'
-        description: 'Specific palette of colors for the currently selected theme.'
+        description: 'Show the specific palette of colors that is used by the currently selected theme.  If you don\'t like a theme\'s default color for a syntax rule, you can alter an individual color to suit your particular taste.  😋'
         type: 'object'
         properties: do ->
             Object.fromEntries(
                 for own name, color of ThemeManager.get().jetbrains_light
                     [name, title: name, type: 'color', default: color]
             )
+        collapsed: true
         order: 3
 
 subscriptions: null
@@ -70,13 +66,7 @@ activate: (state) ->
     @subscriptions.add atom.config.onDidChange 'theme-jetbrains-syntax.palette', (event) =>
         @themeMgr.refresh event.newValue
     @subscriptions.add atom.config.onDidChange 'theme-jetbrains-syntax.font', (event) =>
-        switch event.newValue
-            when 'none' then @fontMgr.unload()
-            when 'jetbrains' then @fontMgr.load()
-            else
-                atom.notifications.addError 'unknown font',
-                    detail: name,
-                    dismissable: yes
+        if event.newValue then @fontMgr.load() else @fontMgr.unload()
 
     @subscriptions.add atom.commands.add 'atom-text-editor', 'theme-jetbrains-syntax:reset': =>
         @themeMgr.reset()
