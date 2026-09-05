@@ -18,10 +18,12 @@ class CursorManager
 
         decoration.destroy() for decoration in @editor.getDecorations { class: 'cursor-line-current' }            
 
-        gutterMarker = @editor.markBufferRange [cursorPos, cursorPos]
+        markerRange = @editor.getBuffer().rangeForRow cursorPos.row, true
+
+        gutterMarker = @editor.markBufferRange markerRange
         @editor.decorateMarker gutterMarker, { type: 'line-number', class: 'cursor-line-current' }
 
-        lineMarker = @editor.markBufferRange [[cursorPos.row, 0], [cursorPos.row + 1, 0]]
+        lineMarker = @editor.markBufferRange markerRange
         @editor.decorateMarker lineMarker, { type: 'highlight', class: 'cursor-line-current' }
 
     dispose: ->
