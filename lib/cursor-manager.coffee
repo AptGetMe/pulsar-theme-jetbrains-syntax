@@ -1,3 +1,5 @@
+Debounce = require 'debounce'
+
 { CompositeDisposable } = require 'atom'
 
 class CursorManager
@@ -5,26 +7,27 @@ class CursorManager
         @subscriptions = new CompositeDisposable()
                
         @editor = editor
-        @highlight @editor.getCursorBufferPosition()
+        @highlight()
 
-        @subscriptions.add @editor.onDidChangeCursorPosition (event) => 
-            @highlight event.newBufferPosition, event.oldBufferPosition
+        debounceEvent = Debounce @highlight, 1, { immediate: true }
 
-    highlight: (cursorPos, cursorPosPrev) ->
-        if @editor.getBuffer().isDestroyed()
-            return
-        if cursorPos.row is cursorPosPrev?.row
-            return
+        @subscriptions.add @editor.onDidChangeCursorPosition debounceEvent
+        @subscriptions.add @editor.onDidChange debounceEvent
 
+    highlight: =>
         decoration.destroy() for decoration in @editor.getDecorations { class: 'cursor-line-current' }            
 
-        markerRange = @editor.getBuffer().rangeForRow cursorPos.row, true
+        curRow = @editor.getCursorBufferPosition().row
+        markerRange = @editor.getBuffer().rangeForRow curRow, true
 
         gutterMarker = @editor.markBufferRange markerRange
-        @editor.decorateMarker gutterMarker, { type: 'line-number', class: 'cursor-line-current' }
-
         lineMarker = @editor.markBufferRange markerRange
-        @editor.decorateMarker lineMarker, { type: 'highlight', class: 'cursor-line-current' }
+
+        @editor.decorateMarker gutterMarker, { type: 'line-number', class: 'cursor-line-current' }
+        if @editor.getBuffer().isRowBlank curRow
+            @editor.decorateMarker lineMarker, { type: 'line', class: 'cursor-line-current' }
+        else
+            @editor.decorateMarker lineMarker, { type: 'highlight', class: 'cursor-line-current' }
 
     dispose: ->
         @subscriptions?.dispose()

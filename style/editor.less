@@ -48,9 +48,10 @@ atom-text-editor {
     z-index: -1;   
     position: relative; 
     
-    .region {
+    .region:first-child {
       background-color: @cursor_line;
       margin-left: -3px;
+      width: 100% !important;
     }
   }
   
@@ -58,6 +59,11 @@ atom-text-editor {
     padding-left: 3px;
   
     .highlights {
+      margin-left: -3px;
+    }
+
+    .cursor-line-current {
+      background-color: @cursor_line;
       margin-left: -3px;
     }
   }
