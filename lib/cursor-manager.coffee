@@ -11,8 +11,13 @@ class CursorManager
 
         debounceEvent = Debounce @highlight, 1, { immediate: true }
 
-        @subscriptions.add @editor.onDidChangeCursorPosition debounceEvent
-        @subscriptions.add @editor.onDidChange debounceEvent
+        @subscriptions.add @editor.onDidChangeCursorPosition (event) =>
+            if event.newBufferPosition.row isnt event.oldBufferPosition.row
+                debounceEvent()
+        @subscriptions.add @editor.getBuffer().onDidChange (event) =>
+            if event.newRange.start.column is 0
+                debounceEvent()
+            
 
     highlight: =>
         decoration.destroy() for decoration in @editor.getDecorations { class: 'cursor-line-current' }            
@@ -20,8 +25,8 @@ class CursorManager
         curRow = @editor.getCursorBufferPosition().row
         markerRange = @editor.getBuffer().rangeForRow curRow, true
 
-        gutterMarker = @editor.markBufferRange markerRange
-        lineMarker = @editor.markBufferRange markerRange
+        gutterMarker = @editor.markBufferRange markerRange, { invalidate: 'surround' }
+        lineMarker = @editor.markBufferRange markerRange, { invalidate: 'surround' }
 
         @editor.decorateMarker gutterMarker, { type: 'line-number', class: 'cursor-line-current' }
         if @editor.getBuffer().isRowBlank curRow
