@@ -1,4 +1,4 @@
-Debounce = require 'debounce'
+{ throttle } = require 'throttle-debounce'
 
 { CompositeDisposable } = require 'atom'
 
@@ -9,14 +9,14 @@ class CursorManager
         @editor = editor
         @highlight()
 
-        debounceEvent = Debounce @highlight, 1, { immediate: true }
+        throttleHighlighting = throttle 20, @highlight
 
         @subscriptions.add @editor.onDidChangeCursorPosition (event) =>
             if event.newBufferPosition.row isnt event.oldBufferPosition.row
-                debounceEvent()
+                throttleHighlighting()
         @subscriptions.add @editor.getBuffer().onDidChange (event) =>
             if event.newRange.start.column is 0
-                debounceEvent()
+                throttleHighlighting()
             
 
     highlight: =>
@@ -29,7 +29,7 @@ class CursorManager
         lineMarker = @editor.markBufferRange markerRange, { invalidate: 'surround' }
 
         @editor.decorateMarker gutterMarker, { type: 'line-number', class: 'cursor-line-current' }
-        if @editor.getBuffer().isRowBlank curRow
+        if @editor.getLastBufferRow() is curRow and @editor.getBuffer().isRowBlank curRow
             @editor.decorateMarker lineMarker, { type: 'line', class: 'cursor-line-current' }
         else
             @editor.decorateMarker lineMarker, { type: 'highlight', class: 'cursor-line-current' }

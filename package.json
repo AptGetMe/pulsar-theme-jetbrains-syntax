@@ -26,8 +26,8 @@
     "release": "dotenv release-it"
   },
   "dependencies": {
-    "debounce": "^2.2.0",
-    "season": "^6.0.2"
+    "season": "^6.0.2",
+    "throttle-debounce": "^5.0.2"
   },
   "devDependencies": {
     "auto-changelog": "^2.6.0",
