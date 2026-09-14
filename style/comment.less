@@ -1,44 +1,28 @@
 // /* comment */
 .syntax--comment {
   color: @comments;
+  font-weight: normal;
+  font-style: italic;
 
-  // @param TODO NOTE
-  &.syntax--caption {
-    color: lighten(@comments, 5);
-    font-weight: bold;
-    text-decoration: underline;
-  }
+&.syntax--block.syntax--documentation {
+    color: @comments_doc;
 
-  // variable function type
-  &.syntax--term {
-    color: lighten(@comments, 5);
-    font-weight: bold;
-  }
+    .syntax--punctuation {
+      color: @comments_tag_value;
+    }
 
-  // { } / .
-  &.syntax--punctuation {
-    color: @comments;
-    font-weight: normal;
-    text-decoration: none;
-  }
+    .syntax--storage {
+      color: @comments_tag_value;
+    }
 
-&.syntax--block {
-    &.syntax--documentation {
-      color: @comments_doc;
-
-      .syntax--punctuation {
-        color: @comments_doc;
-      }
-      .syntax--storage {
-        color: @text;
-      }
-      .syntax--variable {
-        color: @text;
-      }
-      .syntax--tag {
-        color: @comments_tag;
-        font-weight: bold;
-      }
+    .syntax--variable {
+      color: @comments_tag_value;
+    }  
+    
+    .syntax--tag {
+      color: @comments_tag;
+      text-decoration: underline;
+      text-underline-offset: 2px;
     }
   } 
 }
