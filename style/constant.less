@@ -5,16 +5,6 @@
   // &lt; 'a'
   &.syntax--character {
     color: @methods;
-
-    // \" \' \g \.
-    &.syntax--escape {
-      color: @constants_escape;
-    }
-
-    // \u2661 \n \t \W .
-    &.syntax--code {
-      color: @constants_escape;
-    }
   }
 
   &.syntax--enum {
@@ -34,7 +24,7 @@
 
   // #b294bb
   &.syntax--color {
-    color: @constants_escape;
+    color: @constants;
   }
 
   // true false nil
@@ -43,7 +33,7 @@
 
     // ...
     &.syntax--symbolic {
-      color: @constants_escape;
+      color: @constants;
     }
   }
 }

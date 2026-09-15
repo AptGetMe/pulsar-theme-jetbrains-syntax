@@ -6,7 +6,11 @@
     color: @attributes;
   }
 
-  &.syntax--definition.syntax--comment {
-    color: @comments;
+  &.syntax--terminator, &.syntax--comma {
+    color: @punctuations_terminator;
+  }
+
+  .syntax--regexp > & {
+    color: @regexps;
   }
 }

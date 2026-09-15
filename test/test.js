@@ -2,9 +2,14 @@ function globalFunction({ options = {} }) {
   const { minLength } = options;
 
   /**
-   * @description Validator
-   * @param {string?} value - parameter description
+   * Calculates the total price with tax.
+   *
+   * @param {number} price - The base price of the item.
+   * @param {number} [taxRate=0.05] - The optional tax rate.
+   * @returns {number} The final computed total price.
+   * @throws {Error} Throws if price is negative.
    */
+
   const localFunction = value => {
     let isValid = value?.length >= minLength ?? 3; // line comment
     /* Block comment */

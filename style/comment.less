@@ -4,25 +4,58 @@
   font-weight: normal;
   font-style: italic;
 
-&.syntax--block.syntax--documentation {
+  .syntax--punctuation {
+    color: @comments;
+  }
+
+  &.syntax--block.syntax--documentation {
     color: @comments_doc;
-
+    
     .syntax--punctuation {
-      color: @comments_tag_value;
+      color: @comments_doc;
+      
+      ~.syntax--variable {
+        color: @comments_doc;
+      }
     }
-
-    .syntax--storage {
-      color: @comments_tag_value;
-    }
-
+    
     .syntax--variable {
-      color: @comments_tag_value;
+      color: @comments_doc;
+
+      &:nth-child(1 of .syntax--variable) {
+        color: @comments_tag_value;
+      }  
     }  
     
     .syntax--tag {
       color: @comments_tag;
       text-decoration: underline;
       text-underline-offset: 2px;
+    }
+    
+    .syntax--storage {
+      color: @comments_tag_value;
+
+      .syntax--punctuation {
+        color: @comments_tag_value;
+      }
+
+      .syntax--variable ~.syntax--punctuation,
+      .syntax--variable:not(:first-child) {
+        color: @comments_doc;
+      }
+
+      .syntax--variable:last-child, 
+      .syntax--variable:first-child, 
+      .syntax--variable:nth-child(1 of .syntax--variable) {
+        color: @comments_tag_value;
+      }  
+
+      &:has(.syntax--variable) {
+        ~ .syntax--variable {
+          color: @comments_doc;
+        }
+      }
     }
   } 
 }
