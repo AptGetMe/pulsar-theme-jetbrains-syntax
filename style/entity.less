@@ -22,13 +22,6 @@
     }
   }
 
-  &.syntax--method {
-    font-style: italic;
-    &.syntax--constructor {
-      font-style: normal;
-    }
-  }
-
   // add
   &.syntax--operator {
     color: @keywords;
@@ -39,8 +32,12 @@
     }
   }
 
-  .syntax--attribute-name {
-    color: @attributes;
+  &.syntax--attribute-name {
+    color: @properties;
+
+    &.syntax--shorthand {
+      color: @variables;
+    }
   }
 
   &.syntax--pseudo-class {
@@ -67,7 +64,7 @@
   }
 
   &.syntax--inherited-class {
-    color: @text;
+    color: @classes;
   }    
 
   // .class :pseudo-class
@@ -83,7 +80,6 @@
   // div span
   &.syntax--tag {
     color: @tags;
-    text-decoration: underline;
   }
 
   // href src alt

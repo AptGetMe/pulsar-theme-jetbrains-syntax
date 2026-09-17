@@ -34,7 +34,8 @@
     }
 
     // r" /
-    &.syntax--punctuation {
+    &.syntax--punctuation,
+    .syntax--punctuation {
       color: @regexps;
 
       // ( ) [^ ] (?= ) |
@@ -54,5 +55,21 @@
 
   .syntax--code {
     color: @strings_escape;
+  }
+
+  .syntax--punctuation {
+    color: @strings;
+  }
+
+  .syntax--support {
+    color: @strings;
+    
+    &.syntax--type.syntax--predefined {
+      color: @strings;
+    }
+  }
+
+  .syntax--keyword {
+    color: @strings;
   }
 }
