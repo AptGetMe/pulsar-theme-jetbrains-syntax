@@ -54,9 +54,9 @@ You can also do the same thing from the menu ```packages -> Jetbrains Syntax -> 
 
 I want this theme to be the best yet!  So if you can help, that's great.
 
-- Please check the [roadmap](https://github.com/AptGetMe/pulsar-theme-jetbrains-syntax/blob/main/ROADMAP.md) for what is most important to work on as I press toward v1.0!  
+- Please check the [roadmap](https://github.com/AptGetMe/pulsar-theme-jetbrains-syntax/blob/main/.github/ROADMAP.md) for what is most important to work on as I press toward v1.0!  
 
-- Also, read the [contributing](https://github.com/AptGetMe/pulsar-theme-jetbrains-syntax/blob/main/CONTRIBUTING.md) guide, which should help you install the package for development, setup a good dev environment, and understand an overview of how it works.
+- Also, read the [contributing](https://github.com/AptGetMe/pulsar-theme-jetbrains-syntax/blob/main/.github/CONTRIBUTING.md) guide, which should help you install the package for development, setup a good dev environment, and understand an overview of how it works.
 
 ### AI Policy
 
