@@ -1,0 +1,49 @@
+name: 😺 Feature Request
+description: Suggest Improvement to make Theme Jetbrains Better!
+title: '[Feature]: '
+body:
+  - type: dropdown
+    attributes:
+      label: Feature Type
+      description: What general catagory does your idea fall into?
+      options:
+        - UI/UX Improvment
+        - New Settings Options
+        - Code or Stylesheet Refactor
+        - Documentation Clarification
+        - Something Else...
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Feature Details
+      description: Please describe what your feature will add or will help to improve
+      placeholder: 'example:  Better descriptions will help understanding'
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Reasons for Including
+      description: Why do you think your improvement is a good idea?
+      placeholder: 'example:  This config setting is confusing'
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Additional Context
+      placeholder: screenshots, links, mockups etc
+  - type: checkboxes
+    attributes:
+      label: Before Submitting Checklist
+      options:
+        - label: No existing issue
+          required: false
+        - label: Helps address a user problem
+          required: false
+        - label: 'I''m interesting in working on a it 🤗 '
+          required: false
+  - type: markdown
+    attributes:
+      value: >-
+        This template was generated with [Issue Forms
+        Creator](https://issue-forms-creator.netlify.app)

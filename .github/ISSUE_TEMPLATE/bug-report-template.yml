@@ -1,0 +1,67 @@
+name: 🐛 Bug Report
+description: Submit a Bug Report Form
+title: '[Bug]: '
+body:
+  - type: input
+    attributes:
+      label: OS
+      description: What operating system are you using?
+      placeholder: 'example:  Debian 13'
+    validations:
+      required: true
+  - type: input
+    attributes:
+      label: Pulsar Version
+      description: You can find out the version in ```Help -> About Pulsar```
+      placeholder: 'example:  v1.132.1'
+    validations:
+      required: true
+  - type: input
+    attributes:
+      label: Theme Jetbrains Syntax Version
+      description: >-
+        You can find out by looking at ```Settings -> Themes -> Community
+        Themes```
+      placeholder: 'example: v0.3.0'
+    validations:
+      required: true
+  - type: dropdown
+    attributes:
+      label: What Happened?
+      options:
+        - Crash
+        - Syntax Inaccuracy
+        - UX Problem
+        - Something Else...
+    validations:
+      required: true
+  - type: markdown
+    attributes:
+      value: >-
+        If you chose ```Something Else...,``` please also include a brief bug
+        description at the beginning of *How to Reproduce Problem*
+  - type: textarea
+    attributes:
+      label: Steps to Reproduce Problem
+      placeholder: >-
+        1.  open python file  
+        2.  wrong color for function
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Screenshot or Gif of Problem
+      placeholder: A picture is worth a thousand words!
+  - type: checkboxes
+    attributes:
+      label: Before Submitting Checklist
+      options:
+        - label: No existing issue
+          required: false
+        - label: 'I''m interesting in working on a fix 🤗 '
+          required: false
+  - type: markdown
+    attributes:
+      value: >-
+        This template was generated with [Issue Forms
+        Creator](https://issue-forms-creator.netlify.app)
