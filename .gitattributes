@@ -1,0 +1,9 @@
+# Normalize text file line endings
+* text=auto
+
+# Exclude from github linguist stats
+test/** linguist-vendored
+node_modules/** linguist-vendored
+
+# Mark font files as binary
+*.woff2 binary
