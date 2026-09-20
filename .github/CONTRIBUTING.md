@@ -2,9 +2,15 @@
 
 Thanks for wanting to help! 🤗  Hopefully, this guide will get you up to speed.
 
-## Prerequisite
+It'd be a good idea to create an issue first before spending time on a change, especially if your idea is not on the [roadmap.](ROADMAP.md)
 
-It might be a good idea to uninstall Theme Jetbrains if you had it installed the normal way, so you don't have 2 version conflicting!
+## Commits
+
+Please try and write descriptive commit messages.  It's important because Release-it/autochangelog use them to generate the [changelog](../CHANGELOG.md).
+
+## Pull Requests
+
+I now have a pull request template that should show up as you submit your PR.  Before submitting, please make sure it follows the [AI policy guidelines!](CONTRIBUTING.md#ai-policy)
 
 ## Dev install
 
@@ -14,7 +20,10 @@ It might be a good idea to uninstall Theme Jetbrains if you had it installed the
 - Create link so Pulsar know Theme Jetbrains exists  ```pulsar -p link -d .```
 - Open Pulsar in dev mode to see *Theme Jetbrains* option in Settings -> Themes  ```pulsar --dev .```
 
-Code away! 🥳  Anytime you want to begin a new coding session, all you have to run is the last command above ```pulsar --dev .``` from the cloned repo project root.
+Code away! 🥳  
+
+> [!TIP] 
+> Anytime you want to begin a new coding session, all you have to run is the last command above ```pulsar --dev .``` from the cloned repo project root.
 
 ## Dev Workflow
 
@@ -27,7 +36,8 @@ However, it may help to use 2 pulsar instances when working on the theme [side b
 
 Use the dev tools so you can see syntax code class names, which is how Less rules know what to style.  Go to ```View -> Developer -> Toggle Developer Tools``` or use the hotkey <kbd>ctrl-shift-i</kbd> to bring it up.
 
-Use the hotkey <kbd>ctrl-shift-f5</kbd> to refresh the entire app to reload package after making changes.
+> [!TIP]
+> Use the hotkey <kbd>ctrl-shift-f5</kbd> to refresh the entire app to reload package after making changes.
 
 ## Code Overview
 
@@ -40,11 +50,13 @@ It reads the ```themes.cson``` theme file and stores the correct theme.  It prov
 3. **fontManager.coffee** handles font related tasks  \
 It modifies the font CSS variables to customize font
 
-4. **main.less** is where all the Less styles and variable are included.
+4. **cursorManager.coffee** helps with cursor line highlighting.
 
-5. **colors.less** is automatically generated with the current theme colors.  
+5. **main.less** is where all the Less styles and variable are included.
 
-6. **fonts.less** holds all the fontface rules
+6. **colors.less** is automatically generated with the current theme colors.  
+
+7. **fonts.less** holds all the fontface rules.
 
 ## Folders Structure
 
@@ -60,7 +72,6 @@ sample code files in different languages to test the syntax highlighting against
 - style folder  \
 Less styling rules and variables
 
-## Pull Request
+## AI Policy
 
-It'd be a good idea to create an issue first before spending time on a pull request, especially if your idea is not on the roadmap.
-Please make sure to follow the [AI policy guidelines!](./README.md#Ai-Policy)  I'd really appreciate your understanding.  
+The spirit of Theme Jetbrains is made by people for people.  I want it to be cool and fun with the artistic touch only humans make.  I don't want it to be made by robots - I feel like it would lose something.  So, if you use AI tools in your workflow, please make sure it's ONLY for help, and NOT to type the code for you!  I'd really appreciate your understanding!

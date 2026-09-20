@@ -2,7 +2,7 @@
 
 # Theme Jetbrains Syntax
 
-Three-in-One familiar Jetbrains syntax themes for the Pulsar Code Editor ☄️ 
+Three-in-One familiar Jetbrains syntax highlighting for the **Pulsar Code Editor** ☄️ 
 
 ![Theme Demo Walkthrough](https://github.com/user-attachments/assets/6ce40d22-f0fb-402b-bc71-0ff533fd7a45)
 
@@ -16,13 +16,17 @@ Three-in-One familiar Jetbrains syntax themes for the Pulsar Code Editor ☄️
 ![GitHub package.json version](https://img.shields.io/github/package-json/v/aptgetme/pulsar-theme-jetbrains-syntax?style=for-the-badge)
 ![GitHub License](https://img.shields.io/github/license/aptgetme/pulsar-theme-jetbrains-syntax?style=for-the-badge)
 
+### Thanks for trying out **Theme Jetbrains!** 🥰 
+
 </div>
 
-Thanks for trying out **Theme Jetbrains!** 🥰  \
-It's a carefully crafted theme based on Jetbrains comfortable syntax highlighting.
+A carefully crafted syntax theme based on comfortable Jetbrains IDE themes [PyCharm, WebStorm, IntelliJ etc].  Not only will the syntax highlighting be like Jetbrains, but also the settings and behavior should be similar, too.  This is my first theme ever, so it might be kinda buggy rn!  My aim is for it to be a go-to community standard!
 
 > [!IMPORTANT] 
-> It only styles the code editor panel (where you actually type code), NOT the full ui.  I intend for it to be used in conjunction with the Theme Jetbrains Ui package for the complete theme experience, which I have not started yet!
+> It only styles the code editor panel (where you actually type code), NOT the full ui.  I'm putting off working on the UI styling until Pulsar releases the [new theme pack system](https://github.com/pulsar-edit/pulsar/issues/1609) which will help me combine a syntax and UI theme into one package!
+
+> [!TIP]
+> I recommend installing [project-pro](https://packages.pulsar-edit.dev/packages/project-pro) for a good project dashboard that goes well with this theme.
 
 ## Features
 
@@ -31,7 +35,7 @@ It's a carefully crafted theme based on Jetbrains comfortable syntax highlightin
 - Automatic refresh!
 - Dynamically change colors for syntax rules!
 
-This is my first theme ever!  It might be kinda buggy, so bear with me!  My aim is for Theme Jetbrains to be the go-to best and standard community theme packs out there.  Not only will the syntax highlighting be like Jetbrains [PyCharm, WebStorm, IntelliJ etc], but also it will be customizable from the settings page in the same way that Jetbrains is.
+And hopefully, more to come!
 
 ## Install
 
@@ -39,7 +43,8 @@ This is my first theme ever!  It might be kinda buggy, so bear with me!  My aim 
 
 - Go to the ```Settings -> Themes``` pane and select ```Theme Jetbrains``` in the syntax theme dropdown to set it as the active syntax highlighter.  For more help with this step, please check out [these instructions](https://docs.pulsar-edit.dev/using-pulsar/basics/#changing-the-theme).
 
-You can also install using the Pulsar Package Manager.  ```ppm install theme-jetbrains-syntax```
+> [!NOTE]
+>You can also install using the Pulsar Package Manager.  ```ppm install theme-jetbrains-syntax```
 
 ## Update
 
@@ -47,30 +52,39 @@ You can also install using the Pulsar Package Manager.  ```ppm install theme-jet
 
 - If an update is available, there should be an <kbd>update</kbd> button next to the Theme Jetbrains package.  You will be able to click it to update to the latest version.
 
-## How to Use
+> [!NOTE]
+>You can also update using the Pulsar Package manager.  ```ppm update theme-jetbrains-syntax```
+
+## Getting Started
+
+After following the install instructions, you should be set.
 
 In the ```Settings -> Themes``` pane, next to the syntax theme dropdown, there is a ⚙️ icon.  Please click that to access Theme Jetbrains package specific settings.
 
-### Getting Started
+### How to Use
 
 - Click on your desired theme in the settings page, just like in the demo, and it will refresh automagically!
 - Choose whether you want to use the JetBrainsMono font.
 - Change a color in the palette and watch it update in real time.
 - Use the hotkey <kbd>ctrl-alt-y</kbd> to reset and reload the theme.
 
-You can also do the same thing from the menu ```packages -> Jetbrains Syntax -> reset``` or the code editor context menu ```Jetbrains Syntax -> reset```
+> [!TIP]
+> You can also do the same thing from the menu ```packages -> Jetbrains Syntax -> reset``` or the code editor context menu ```Jetbrains Syntax -> reset```
+
+## AI Policy
+
+**Not** a vibe-coded project!  \
+For more details, have a look at my [AI Policy](https://github.com/AptGetMe/pulsar-theme-jetbrains-syntax/blob/main/.github/CONTRIBUTING.md#ai-policy)
 
 ## Contributing
 
-I want this theme to be the best yet!  So if you can help, that's great.
+I want this theme to be the **best** yet!  So if you can help, that's great.
 
-- Please check the [roadmap](https://github.com/AptGetMe/pulsar-theme-jetbrains-syntax/blob/main/.github/ROADMAP.md) for what is most important to work on as I press toward v1.0!  
+Please read the [contributing](https://github.com/AptGetMe/pulsar-theme-jetbrains-syntax/blob/main/.github/CONTRIBUTING.md) guide, which should help you install the package for development, setup a good dev environment, and understand an overview of how it works.
 
-- Also, read the [contributing](https://github.com/AptGetMe/pulsar-theme-jetbrains-syntax/blob/main/.github/CONTRIBUTING.md) guide, which should help you install the package for development, setup a good dev environment, and understand an overview of how it works.
+## What's next?
 
-### AI Policy
-
-The spirit of Theme Jetbrains is made by people for people.  I want it to be cool and fun with the artistic touch only humans make.  I don't want it to be made by robots - I feel like it would lose something.  So, if you use AI tools in your workflow, please make sure it's ONLY for help, and NOT to type the code for you!
+Please check the [roadmap](https://github.com/AptGetMe/pulsar-theme-jetbrains-syntax/blob/main/.github/ROADMAP.md) for what is most important to work on as I press toward v1.0!  
 
 ## Support the Project
 
