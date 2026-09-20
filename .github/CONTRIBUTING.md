@@ -2,15 +2,15 @@
 
 Thanks for wanting to help! 🤗  Hopefully, this guide will get you up to speed.
 
-It'd be a good idea to create an issue first before spending time on a change, especially if your idea is not on the [roadmap.](ROADMAP.md)
+It'd be a good idea to create an issue first before spending time on a change, especially if your idea is not on the [roadmap.](https://github.com/AptGetMe/pulsar-theme-jetbrains-syntax/blob/main/.github/ROADMAP.md)
 
 ## Commits
 
-Please try and write descriptive commit messages.  It's important because Release-it/autochangelog use them to generate the [changelog](../CHANGELOG.md).
+Please try and write descriptive commit messages.  It's important because Release-it/autochangelog use them to generate the [changelog](https://github.com/AptGetMe/pulsar-theme-jetbrains-syntax/blob/main/CHANGELOG.md).
 
 ## Pull Requests
 
-I now have a pull request template that should show up as you submit your PR.  Before submitting, please make sure it follows the [AI policy guidelines!](CONTRIBUTING.md#ai-policy)
+I now have a pull request template that should show up as you submit your PR.  Before submitting, please make sure it follows the [AI policy guidelines!](https://github.com/AptGetMe/pulsar-theme-jetbrains-syntax/blob/main/.github/CONTRIBUTING.md#ai-policy)
 
 ## Dev install
 
