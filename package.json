@@ -23,7 +23,8 @@
     "atom": ">=1.0.0 <2.0.0"
   },
   "scripts": {
-    "release": "node create-release.mjs"
+    "release": "node create-release.mjs",
+    "release-test": "node create-release.mjs --test"
   },
   "dependencies": {
     "season": "^6.0.2",
