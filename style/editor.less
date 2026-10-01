@@ -99,6 +99,34 @@ atom-text-editor {
       }
     }
   }
+  
+  .vertical-scrollbar, .horizontal-scrollbar, .scrollbar-corner {
+    &::-webkit-scrollbar {
+      width: 14px;
+      height: 12px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background-color: transparent !important;
+    }  
+
+    &::-webkit-scrollbar-thumb {
+      background-color: @scrollbar !important;
+      background-clip: padding-box !important;
+      border-style: solid !important;
+      border-color: transparent !important;
+      border-width: 2px 3px !important;
+      border-radius: 0px !important;
+    }
+    
+    &::-webkit-scrollbar-thumb:hover, &::-webkit-scrollbar-thumb:active {
+      background-color: @scrollbar_hover !important;
+    }
+
+    &::-webkit-scrollbar-corner {
+      background-color: transparent !important;
+    }
+  }
 }
 
 atom-text-editor[mini] .scroll-view {
