@@ -17,8 +17,9 @@ I now have a pull request template that should show up as you submit your PR.  B
 - Clone github repository  ```git clone https://github.com/AptGetMe/pulsar-theme-jetbrains-syntax.git```
 - Move into project folder  ```cd pulsar-theme-jetbrains-syntax```
 - Install packages  ```npm install```
-- Create link so Pulsar know Theme Jetbrains exists  ```pulsar -p link -d .```
-- Open Pulsar in dev mode to see *Theme Jetbrains* option in Settings -> Themes  ```pulsar --dev .```
+- Create link so Pulsar knows Theme Jetbrains exists  ```pulsar -p link -d .```
+- Run ```pulsar --dev .``` in root of project to open Pulsar in dev mode. 
+- Select *Theme Jetbrains* option which should be available in ```Settings -> Themes -> Syntax Themes```
 
 Code away! 🥳  
 
@@ -27,12 +28,10 @@ Code away! 🥳
 
 ## Dev Workflow
 
-You can code from the devopment window if you want to.  \
+You can code from the development window if you want to.  \
 However, it may help to use 2 pulsar instances when working on the theme [side by side](https://docs.pulsar-edit.dev/developing-for-pulsar/developing-a-theme/#side-by-side).  
 
-- One should be opened normally and is where you make all code changes.  The other should be opened in dev mode from the project folder and is where you can test changes.
-
-- Or you could have the dev window open and make code changes from a *different* code editor.
+Or you could have the dev window open and make code changes from a *different* code editor.
 
 Use the dev tools so you can see syntax code class names, which is how Less rules know what to style.  Go to ```View -> Developer -> Toggle Developer Tools``` or use the hotkey <kbd>ctrl-shift-i</kbd> to bring it up.
 
@@ -42,15 +41,16 @@ Use the dev tools so you can see syntax code class names, which is how Less rule
 ## Code Overview
 
 1. **main.coffee** is the entry point when the theme is activated.  \
-The first thing done is to spin up *themeManager* and *fontManager* objects.  Then, creates the config settings and binds keys and actions when settings are changed.  
+It creates the config settings dynamically.  The first thing done is to spin up *themeManager* and *fontManager* objects and *cursorManager* for the active text editor.  Then, it binds keys and actions to call the appropriate objects' functions when settings are changed.  
 
 2. **themeManager.coffee** handles all theme details  \
-It reads the ```themes.cson``` theme file and stores the correct theme.  It provides getters and setters the config settings and actions are made correctly and stay in sync.  It writes the theme colors to the ```colors.less``` file dynamically so the syntax highlighting changes when settings are changed, and automatically refreshes Less code when necessary.
+It reads the ```themes.cson``` theme file and stores the correct theme.  It writes the theme colors to the ```colors.less``` file dynamically and automatically refreshes Less code when necessary.
 
 3. **fontManager.coffee** handles font related tasks  \
 It modifies the font CSS variables to customize font
 
-4. **cursorManager.coffee** helps with cursor line highlighting.
+4. **cursorManager.coffee** helps with cursor line highlighting  \
+This includes adding a decoration to the active text editor and determining when to update it.
 
 5. **main.less** is where all the Less styles and variable are included.
 
@@ -74,4 +74,4 @@ Less styling rules and variables
 
 ## AI Policy
 
-The spirit of Theme Jetbrains is made by people for people.  I want it to be cool and fun with the artistic touch only humans make.  I don't want it to be made by robots - I feel like it would lose something.  So, if you use AI tools in your workflow, please make sure it's ONLY for help, and NOT to type the code for you!  I'd really appreciate your understanding!
+The spirit of Theme Jetbrains is made by people for people.  I want it to be cool and fun with the artistic touch only humans make.  I don't want it to be made by robots - I feel like it would lose something.  So, if you use AI tools in your workflow, please make sure it's ONLY as a companion to help you, and NOT to type the code for you!  I'd really appreciate your understanding!
